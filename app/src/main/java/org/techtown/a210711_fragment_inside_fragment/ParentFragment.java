@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 public class ParentFragment extends Fragment {
 
@@ -22,7 +23,28 @@ public class ParentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_parent, container, false);
+        View rootview = inflater.inflate(R.layout.fragment_parent, container, false);
+
+        Button button = rootview.findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment childFragment = new ChildFragment();
+                getChildFragmentManager().beginTransaction().replace(R.id.child_fragment_container, childFragment).commit();
+            }
+        });
+
+        Button button2 = rootview.findViewById(R.id.button2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment child2Fragment = new Child2Fragment();
+                getChildFragmentManager().beginTransaction().replace(R.id.child_fragment_container, child2Fragment).commit();
+            }
+        });
+
+
+        return rootview;
     }
 
     @Override

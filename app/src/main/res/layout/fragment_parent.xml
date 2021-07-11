@@ -15,6 +15,20 @@
         android:text="Parent fragment"
         android:textSize="20sp"/>
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="child">
+    </Button>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="child2">
+    </Button>
+
     <FrameLayout
         android:id="@+id/child_fragment_container"
         android:layout_width="match_parent"
